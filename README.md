@@ -7,7 +7,7 @@ Using the very cool ‘map’ property that came in SASS v3 http://sass.logdown.
 
 Example: 
 
-```SASS
+```css
 $gridSetup: (
 	columnCount: 2
 );
@@ -32,7 +32,7 @@ Turns into
 
 A more complicated example would look like this: 
 
-```SASS
+```css
 $gridSetup2: (
 	mobile: (
 		columnCount: 2,
