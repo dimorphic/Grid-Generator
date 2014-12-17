@@ -5,6 +5,14 @@ GridGenerator is a SASS mixin meant to replace all grids :) From Twitter Bootstr
 
 Using the very cool ‘map’ property that came in SASS v3 http://sass.logdown.com/ we can now create pretty objects to generate only specific grids / grid classes / grid styles. 
 
+Params: 
+
+```columnCount``` - is used to define the number of columns, everything is in % and the grid inherits the width of its parent 
+
+```columnDistribution``` - receives an array of values from 1 - 10 and it should be used to definde specifc widths for each column.
+
+If ```columnCount``` is not added then the ```@mixin``` looks for responsive setting that can be configured using ```mobile```,```tablet```,```desktop```.
+
 Example: 
 
 ```css
