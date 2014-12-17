@@ -1,0 +1,240 @@
+/**
+ * style.scss
+ *
+ *
+ * @author Mihnea Belcin
+ */
+/*------------------------------------*\
+    $TABLE OF CONTENTS
+\*------------------------------------*/
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+/* line 6, ../scss/_reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 27, ../scss/_reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 31, ../scss/_reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 34, ../scss/_reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 37, ../scss/_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 40, ../scss/_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 45, ../scss/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 
+    Apply a natural box layout model to all elements, but allowing components to change.
+    More on http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ 
+*/
+/* line 55, ../scss/_reset.scss */
+html {
+  box-sizing: border-box;
+}
+
+/* line 58, ../scss/_reset.scss */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/**
+ * variables.scss
+ *
+ *
+ * @author Mihnea Belcin
+ */
+/*------------------------------------*\
+    BREAKPOINTS VARIABLES
+\*------------------------------------*/
+/**
+ * mixins.scss
+ *
+ *
+ * @author Mihnea Belcin
+ */
+/*------------------------------------*\
+    RESPONSIVE MIXINS
+\*------------------------------------*/
+/**
+ * grid.scss
+ *
+ *
+ * @author Mihnea Belcin
+ */
+/*------------------------------------*\
+    GRID SYSTEM
+\*------------------------------------*/
+/* line 21, ../scss/style.scss */
+.grid {
+  background: #cecece;
+  clear: both;
+}
+/* line 25, ../scss/style.scss */
+.grid div {
+  padding-top: 50px;
+}
+
+/* line 31, ../scss/style.scss */
+.grid div:nth-child(1) {
+  background: rgba(47, 39, 152, 0.9);
+}
+
+/* line 31, ../scss/style.scss */
+.grid div:nth-child(2) {
+  background: rgba(47, 39, 152, 0.8);
+}
+
+/* line 31, ../scss/style.scss */
+.grid div:nth-child(3) {
+  background: rgba(47, 39, 152, 0.7);
+}
+
+/* line 31, ../scss/style.scss */
+.grid div:nth-child(4) {
+  background: rgba(47, 39, 152, 0.6);
+}
+
+/* line 31, ../scss/style.scss */
+.grid div:nth-child(5) {
+  background: rgba(47, 39, 152, 0.5);
+}
+
+/* line 31, ../scss/style.scss */
+.grid div:nth-child(6) {
+  background: rgba(47, 39, 152, 0.4);
+}
+
+/* line 31, ../scss/style.scss */
+.grid div:nth-child(7) {
+  background: rgba(47, 39, 152, 0.3);
+}
+
+/* line 31, ../scss/style.scss */
+.grid div:nth-child(8) {
+  background: rgba(47, 39, 152, 0.2);
+}
+
+/* line 31, ../scss/style.scss */
+.grid div:nth-child(9) {
+  background: rgba(47, 39, 152, 0.1);
+}
+
+/* line 31, ../scss/style.scss */
+.grid div:nth-child(10) {
+  background: rgba(47, 39, 152, 0);
+}
+
+/* line 63, ../scss/_grid.scss */
+.grid {
+  width: inherit;
+}
+
+/* line 66, ../scss/_grid.scss */
+.grid [class*='col-'] {
+  float: left;
+  width: 100%;
+}
+
+/* line 16, ../scss/_grid.scss */
+.grid .col-2 {
+  width: 50%;
+}
+
+/* line 22, ../scss/_grid.scss */
+.grid .col-2-3 {
+  width: 30%;
+}
+/* line 22, ../scss/_grid.scss */
+.grid .col-2-7 {
+  width: 70%;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 46, ../scss/_grid.scss */
+  .grid .col-mobile-2-3 {
+    width: 30%;
+  }
+  /* line 46, ../scss/_grid.scss */
+  .grid .col-mobile-2-7 {
+    width: 70%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 40, ../scss/_grid.scss */
+  .grid .col-desktop-3 {
+    width: 33.33333%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* line 40, ../scss/_grid.scss */
+  .grid .col-tablet-3 {
+    width: 33.33333%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 46, ../scss/_grid.scss */
+  .grid .col-desktop-3-2 {
+    width: 20%;
+  }
+  /* line 46, ../scss/_grid.scss */
+  .grid .col-desktop-3-2 {
+    width: 20%;
+  }
+  /* line 46, ../scss/_grid.scss */
+  .grid .col-desktop-3-6 {
+    width: 60%;
+  }
+}
+
+/* line 16, ../scss/_grid.scss */
+.grid .col-9 {
+  width: 11.11111%;
+}

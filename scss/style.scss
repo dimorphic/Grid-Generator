@@ -1,0 +1,81 @@
+/**
+ * style.scss
+ *
+ *
+ * @author Mihnea Belcin
+ */
+
+/*------------------------------------*\
+    $TABLE OF CONTENTS
+\*------------------------------------*/
+
+@import "reset";
+@import "variables";
+@import "mixins";
+@import "grid";
+
+
+
+// DEMO STYLES 
+
+.grid {
+	background: #cecece;
+	clear: both;
+
+	div {
+		padding-top: 50px;
+	}
+}
+
+@for $i from 1 through 10 {
+	.grid div:nth-child(#{$i}) {
+		background: transparentize(#2f2798, $i * 0.1);
+	}
+}
+
+
+// EXAMPLE GRIDS
+
+$gridSetup: (
+	columnCount: 2
+);
+
+$gridSetup2: (
+	columnCount: 2,
+	columnDistribution: (3, 7) 
+	// sum should be 10 (100%)
+);
+
+$gridSetup3: (
+	mobile: (
+		columnCount: 2,
+		columnDistribution: (3, 7)
+	),
+	desktop: (
+		columnCount: 3
+	)
+);
+
+$gridSetup4: (
+	tablet: (
+		columnCount: 3
+	),
+	desktop: (
+		columnCount: 3,
+		columnDistribution: (2, 2, 6)
+	)
+);
+
+$gridSetup5: (
+	columnCount: 9
+);
+
+@include generateGrid($gridSetup);
+@include generateGrid($gridSetup2);
+@include generateGrid($gridSetup3);
+@include generateGrid($gridSetup4);
+@include generateGrid($gridSetup5);
+
+
+
+

@@ -1,0 +1,85 @@
+/**
+ * grid.scss
+ *
+ *
+ * @author Mihnea Belcin
+ */
+
+/*------------------------------------*\
+    GRID SYSTEM
+\*------------------------------------*/
+
+
+@mixin grid($columnCount, $columnDistribution) {
+
+  @if $columnDistribution == null {
+    .col-#{$columnCount} {
+      width: 100% / $columnCount;
+    }
+  } @else {
+    $columnTotal: 0;
+    @for $i from 1 through $columnCount {
+      .col-#{$columnCount}-#{nth($columnDistribution, $i)} {
+        $columnTotal: $columnTotal + nth($columnDistribution, $i);
+        width: nth($columnDistribution, $i) * 10%;
+      }
+    }
+    @if $columnTotal != 10 {
+      @warn 'Theres room left to fit more columns';
+    }
+  }
+}
+
+
+@mixin responsiveGrid($type, $config) {
+    $columnCount: map-get($config, 'columnCount');
+    $columnDistribution: map-get($config, 'columnDistribution');
+
+    @include responsive($type) {
+        @if $columnDistribution == null {
+          .col-#{$type}-#{$columnCount} {
+            width: 100% / $columnCount;
+          }
+        } @else {
+          $columnTotal: 0;
+          @for $i from 1 through $columnCount {
+            .col-#{$type}-#{$columnCount}-#{nth($columnDistribution, $i)} {
+              $columnTotal: $columnTotal + nth($columnDistribution, $i);
+              width: nth($columnDistribution, $i) * 10%;
+            }
+          }
+          @if $columnTotal != 10 {
+            @warn 'Theres room left to fit more columns';
+          }
+        }
+    }
+}
+
+
+$gridInit: 0;
+@mixin generateGrid($config) {
+  @if $gridInit == 0 {
+    $gridInit: 1 !global;
+    .grid {
+      width: inherit;
+    }
+      .grid [class*='col-'] {
+        float: left;
+        width: 100%;
+      }
+  }
+
+  @if map-get($config, 'columnCount') != null {
+    .grid {
+      $columnCount: map-get($config, 'columnCount');
+      $columnDistribution: map-get($config, 'columnDistribution');
+      @include grid($columnCount, $columnDistribution);
+    }
+  } @else {
+    .grid {
+      @each $device in map-keys($config) {
+        @include responsiveGrid($device, map-get($config, $device));
+      }
+    }
+  }
+}
