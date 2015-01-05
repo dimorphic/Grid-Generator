@@ -118,123 +118,141 @@ html {
 }
 /* line 25, ../scss/style.scss */
 .grid div {
-  padding-top: 50px;
+  padding-top: 250px;
+  margin-bottom: 12px;
 }
 
-/* line 31, ../scss/style.scss */
+/* line 32, ../scss/style.scss */
 .grid div:nth-child(1) {
   background: rgba(47, 39, 152, 0.9);
 }
 
-/* line 31, ../scss/style.scss */
+/* line 32, ../scss/style.scss */
 .grid div:nth-child(2) {
   background: rgba(47, 39, 152, 0.8);
 }
 
-/* line 31, ../scss/style.scss */
+/* line 32, ../scss/style.scss */
 .grid div:nth-child(3) {
   background: rgba(47, 39, 152, 0.7);
 }
 
-/* line 31, ../scss/style.scss */
+/* line 32, ../scss/style.scss */
 .grid div:nth-child(4) {
   background: rgba(47, 39, 152, 0.6);
 }
 
-/* line 31, ../scss/style.scss */
+/* line 32, ../scss/style.scss */
 .grid div:nth-child(5) {
   background: rgba(47, 39, 152, 0.5);
 }
 
-/* line 31, ../scss/style.scss */
+/* line 32, ../scss/style.scss */
 .grid div:nth-child(6) {
   background: rgba(47, 39, 152, 0.4);
 }
 
-/* line 31, ../scss/style.scss */
+/* line 32, ../scss/style.scss */
 .grid div:nth-child(7) {
   background: rgba(47, 39, 152, 0.3);
 }
 
-/* line 31, ../scss/style.scss */
+/* line 32, ../scss/style.scss */
 .grid div:nth-child(8) {
   background: rgba(47, 39, 152, 0.2);
 }
 
-/* line 31, ../scss/style.scss */
+/* line 32, ../scss/style.scss */
 .grid div:nth-child(9) {
   background: rgba(47, 39, 152, 0.1);
 }
 
-/* line 31, ../scss/style.scss */
+/* line 32, ../scss/style.scss */
 .grid div:nth-child(10) {
   background: rgba(47, 39, 152, 0);
 }
 
-/* line 63, ../scss/_grid.scss */
+/* line 69, ../scss/_grid.scss */
 .grid {
   width: inherit;
 }
 
-/* line 66, ../scss/_grid.scss */
+/* line 72, ../scss/_grid.scss */
 .grid [class*='col-'] {
   float: left;
-  width: 100%;
 }
 
-/* line 16, ../scss/_grid.scss */
+/* line 85, ../scss/_grid.scss */
 .grid .col-2 {
   width: 50%;
 }
-
-/* line 22, ../scss/_grid.scss */
-.grid .col-2-3 {
-  width: 30%;
+/* line 85, ../scss/_grid.scss */
+.grid .col-4 {
+  width: 25%;
 }
-/* line 22, ../scss/_grid.scss */
-.grid .col-2-7 {
-  width: 70%;
+/* line 85, ../scss/_grid.scss */
+.grid .col-7 {
+  width: 14.28571%;
+}
+
+/* line 103, ../scss/_grid.scss */
+.grid .col-2o7 {
+  width: 28.57143%;
+}
+/* line 103, ../scss/_grid.scss */
+.grid .col-5o7 {
+  width: 71.42857%;
+}
+/* line 103, ../scss/_grid.scss */
+.grid .col-3o4 {
+  width: 75%;
+}
+/* line 103, ../scss/_grid.scss */
+.grid .col-1o4 {
+  width: 25%;
 }
 
 @media only screen and (max-width: 767px) {
-  /* line 46, ../scss/_grid.scss */
-  .grid .col-mobile-2-3 {
-    width: 30%;
-  }
-  /* line 46, ../scss/_grid.scss */
-  .grid .col-mobile-2-7 {
-    width: 70%;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  /* line 40, ../scss/_grid.scss */
-  .grid .col-desktop-3 {
+  /* line 39, ../scss/_grid.scss */
+  .grid .col-mobile-3 {
     width: 33.33333%;
   }
 }
-
 @media only screen and (min-width: 768px) {
-  /* line 40, ../scss/_grid.scss */
-  .grid .col-tablet-3 {
-    width: 33.33333%;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  /* line 46, ../scss/_grid.scss */
-  .grid .col-desktop-3-2 {
+  /* line 39, ../scss/_grid.scss */
+  .grid .col-tablet-5 {
     width: 20%;
   }
-  /* line 46, ../scss/_grid.scss */
-  .grid .col-desktop-3-2 {
-    width: 20%;
+  /* line 39, ../scss/_grid.scss */
+  .grid .col-tablet-7 {
+    width: 14.28571%;
   }
-  /* line 46, ../scss/_grid.scss */
-  .grid .col-desktop-3-6 {
+  /* line 39, ../scss/_grid.scss */
+  .grid .col-tablet-9 {
+    width: 11.11111%;
+  }
+
+  /* line 55, ../scss/_grid.scss */
+  .grid .col-tablet-2o5 {
+    width: 40%;
+  }
+  /* line 55, ../scss/_grid.scss */
+  .grid .col-tablet-3o5 {
     width: 60%;
   }
 }
+@media only screen and (min-width: 1024px) {
+  /* line 39, ../scss/_grid.scss */
+  .grid .col-desktop-3 {
+    width: 33.33333%;
+  }
 
-/* line 16, ../scss/_grid.scss */
-.grid .col-9 {
-  width: 11.11111%;
+  /* line 55, ../scss/_grid.scss */
+  .grid .col-desktop-4o6 {
+    width: 66.66667%;
+  }
+  /* line 55, ../scss/_grid.scss */
+  .grid .col-desktop-2o6 {
+    width: 33.33333%;
+  }
 }

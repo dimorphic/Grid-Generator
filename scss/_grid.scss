@@ -10,23 +10,15 @@
 \*------------------------------------*/
 
 
-@mixin grid($columnCount, $columnDistribution) {
+@mixin grid($column) {
+  .col-#{$column} {
+    width: 100% / $column;
+  }
+}
 
-  @if $columnDistribution == null {
-    .col-#{$columnCount} {
-      width: 100% / $columnCount;
-    }
-  } @else {
-    $columnTotal: 0;
-    @for $i from 1 through $columnCount {
-      .col-#{$columnCount}-#{nth($columnDistribution, $i)} {
-        $columnTotal: $columnTotal + nth($columnDistribution, $i);
-        width: nth($columnDistribution, $i) * 10%;
-      }
-    }
-    @if $columnTotal != 10 {
-      @warn 'Theres room left to fit more columns';
-    }
+@mixin distributedGrid($columnCount, $gridCount) {
+  .col-#{$columnCount}o#{$gridCount} {
+    width: number($columnCount) / number($gridCount) * 100%;
   }
 }
 
@@ -36,22 +28,36 @@
     $columnDistribution: map-get($config, 'columnDistribution');
 
     @include responsive($type) {
-        @if $columnDistribution == null {
-          .col-#{$type}-#{$columnCount} {
-            width: 100% / $columnCount;
-          }
-        } @else {
-          $columnTotal: 0;
-          @for $i from 1 through $columnCount {
-            .col-#{$type}-#{$columnCount}-#{nth($columnDistribution, $i)} {
-              $columnTotal: $columnTotal + nth($columnDistribution, $i);
-              width: nth($columnDistribution, $i) * 10%;
+
+      @if map-has-key($config, 'columnCount') {
+        .grid {
+          $columnArray: map-get($config, 'columnCount');
+          @each $column in $columnArray {
+            $columnCount: nth($columnArray, index($columnArray, $column));
+
+            // @include grid($columnCount);
+            .col-#{$type}-#{$columnCount} {
+              width: columnWidth($column);
             }
           }
-          @if $columnTotal != 10 {
-            @warn 'Theres room left to fit more columns';
+        }
+      }
+
+      @if map-has-key($config, 'columnVariations') {
+        .grid {
+          $columnVariations: map-get($config, 'columnVariations');
+          @each $column in $columnVariations {
+            $columnVariation: nth($columnVariations, index($columnVariations, $column));
+            $columnCount: str-slice($columnVariation, 0,1);
+            $gridCount: str-slice($columnVariation, 3,4);
+
+            // @include distributedGrid($columnCount, $gridCount);
+            .col-#{$type}-#{$columnCount}o#{$gridCount} {
+              width: columnWidth($columnCount, $gridCount);
+            }
           }
         }
+      }
     }
 }
 
@@ -65,21 +71,79 @@ $gridInit: 0;
     }
       .grid [class*='col-'] {
         float: left;
-        width: 100%;
       }
   }
 
-  @if map-get($config, 'columnCount') != null {
+  // EQUAL COLUMNS
+  @if map-has-key($config, 'columnCount') {
     .grid {
-      $columnCount: map-get($config, 'columnCount');
-      $columnDistribution: map-get($config, 'columnDistribution');
-      @include grid($columnCount, $columnDistribution);
-    }
-  } @else {
-    .grid {
-      @each $device in map-keys($config) {
-        @include responsiveGrid($device, map-get($config, $device));
+      $columnArray: map-get($config, 'columnCount');
+      @each $column in $columnArray {
+        $columnCount: nth($columnArray, index($columnArray, $column));
+
+        // @include grid($columnCount);
+        .col-#{$column} {
+          width: columnWidth($column);
+        }
       }
     }
   }
+
+
+  // DISTRIBUTED COLUMNS
+  @if map-has-key($config, 'columnVariations') {
+    .grid {
+      $columnVariations: map-get($config, 'columnVariations');
+      @each $column in $columnVariations {
+        $columnVariation: nth($columnVariations, index($columnVariations, $column));
+        $columnCount: str-slice($columnVariation, 0,1);
+        $gridCount: str-slice($columnVariation, 3,4);
+
+        // @include distributedGrid($columnCount, $gridCount);
+        .col-#{$columnCount}o#{$gridCount} {
+          width: columnWidth($columnCount, $gridCount);
+        }
+      }
+    }
+  }
+
+
+  // RESPONSIVE 
+  $responsiveBreakpoints: (
+    mobile:  true,
+    tablet:  true,
+    desktop: true
+  );
+  @each $type in map-keys($config) {
+    @if map-has-key($responsiveBreakpoints, $type) {
+      @include responsiveGrid($type, map-get($config, $type));
+    }
+    
+  }
 }
+
+
+@function columnWidth($count, $total: 1) {
+  @if $total == 1 {
+    @return (100% / $count);  
+  } @else {
+    @return (number($count) / number($total) * 100%);
+  }
+  
+}
+
+@function number($string) {
+  $strings: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9";
+  $numbers:  0   1   2   3   4   5   6   7   8   9;
+  $result: 0;
+
+  @for $i from 1 through 10 {
+    @if $string == nth($strings, $i) {
+      $result: nth($numbers, $i);
+    }
+  }
+
+  @return $result;
+}
+
+

@@ -23,7 +23,8 @@
 	clear: both;
 
 	div {
-		padding-top: 50px;
+		padding-top: 250px;
+		margin-bottom: 12px;
 	}
 }
 
@@ -37,44 +38,27 @@
 // EXAMPLE GRIDS
 
 $gridSetup: (
-	columnCount: 2
-);
-
-$gridSetup2: (
-	columnCount: 2,
-	columnDistribution: (3, 7) 
-	// sum should be 10 (100%)
-);
-
-$gridSetup3: (
+	columnCount: (2 4 7),
+	columnVariations: ("2o7" "5o7" "3o4" "1o4"),
 	mobile: (
-		columnCount: 2,
-		columnDistribution: (3, 7)
+		columnCount: 3
 	),
-	desktop: (
-		columnCount: 3
-	)
-);
-
-$gridSetup4: (
 	tablet: (
-		columnCount: 3
+		columnCount: 5 7 9,
+		columnVariations: "2o5" "3o5"
 	),
 	desktop: (
 		columnCount: 3,
-		columnDistribution: (2, 2, 6)
-	)
+		columnVariations: "4o6" "2o6"
+	),
 );
 
-$gridSetup5: (
-	columnCount: 9
-);
 
 @include generateGrid($gridSetup);
-@include generateGrid($gridSetup2);
-@include generateGrid($gridSetup3);
-@include generateGrid($gridSetup4);
-@include generateGrid($gridSetup5);
+
+
+
+
 
 
 
