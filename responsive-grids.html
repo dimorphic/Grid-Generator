@@ -1,0 +1,49 @@
+<!doctype html>
+<!--[if IE 8]><html lang="en" class="no-js oldie ie8"> <![endif]-->
+<!--[if IE 9]><html lang="en" class="no-js oldie ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+		<title>Grid Generator</title>
+
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+    <div class="wrapper">
+
+      <p>Responsive grids can be created by configuring "s / m / l / xl" keys</p>
+      <p>each key represents a screen size (small / medium / large / huge) and receives same configs as static grids (columnCount / columnVariations / gutter)</p>
+      <div class="grid">
+        <div class="col-3 col-s-2"></div>
+        <div class="col-3 col-s-2"></div>
+        <div class="col-3 col-s-1"></div>
+      </div>
+
+
+      <p>Breakpoints values can be changed inside _variables.scss.</p>
+      <div class="grid">
+        <div class="col-6 col-s-3 col-m-4"></div>
+        <div class="col-6 col-s-3 col-m-4"></div>
+        <div class="col-6 col-s-3 col-m-4"></div>
+        <div class="col-6 col-s-3 col-m-4"></div>
+        <div class="col-6 col-s-3 col-m-1o4"></div>
+        <div class="col-6 col-s-3 col-m-3o4"></div>
+      </div>
+
+
+      <p>Static grid configs can be omited if all breakpoints have been covered.</p>
+      <div class="grid">
+        <div class="col-s-3 col-m-4 col-l-4 col-xl-5 "></div>
+        <div class="col-s-3 col-m-4 col-l-4 col-xl-5 "></div>
+        <div class="col-s-3 col-m-4 col-l-4 col-xl-5 "></div>
+        <div class="col-s-3 col-m-4 col-l-4 col-xl-5 "></div>
+        <div class="col-s-3 col-m-1o4 col-l-2 col-xl-5 "></div>
+        <div class="col-s-3 col-m-3o4 col-l-2 col-xl-1 "></div>
+      </div>
+    </div>
+
+
+	</body>
+</html>

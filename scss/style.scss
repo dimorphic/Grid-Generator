@@ -11,12 +11,12 @@
 
 // @import "reset";
 @import "variables";
-@import "mixins";
-@import "grid";
+@import "responsive_mixins";
+@import "wtgrid";
 
-
-
-// DEMO STYLES 
+/*------------------------------------*\
+    DEMO STYLES
+\*------------------------------------*/
 
 .wrapper {
 	width: 100%;
@@ -27,36 +27,127 @@
 	background: #cecece;
 	clear: both;
 
-	overflow: hidden;
-	background: pink;
-	// margin-bottom: 10px;
-
 	div {
-		padding-top: 250px;
+		padding-top: 150px;
 		margin-bottom: 10px;
 	}
 }
 
-@for $i from 1 through 15 {
+@for $i from 1 through 35 {
 	.grid div:nth-child(#{$i}) {
-		background: transparentize(#2f2798, $i * 0.05);
+		background: transparentize(#2f2798, $i * 0.02);
 	}
 }
 
 
-// EXAMPLE GRIDS
+/*------------------------------------*\
+    EXAMPLES
+\*------------------------------------*/
 
-$gridSetup: (
-	columnCount: 1 2 4 7 9 10 11,
-	columnVariations: "2o7" "5o7" "3o4" "1o4" "5o11" "6o11" "7o11" "8o11" "10o11",
-	gutter: 10px,
+
+/*------------------------------------*\
+    STATIC GRIDS
+\*------------------------------------*/
+
+
+$gridSetup1: (
+	columnCount: 3
+);
+@include generateGrid($gridSetup1);
+
+
+$gridSetup2: (
+	columnCount: 4,
+	gutter: 10px
+);
+@include generateGrid($gridSetup2);
+
+
+$gridSetup3: (
+	columnCount: 5,
+	columnVariations: "4o5",
+	gutter: 20px
+);
+@include generateGrid($gridSetup3);
+
+
+$gridSetup4: (
+	columnCount: 2 4,
+	columnVariations: "1o4" "3o4",
+	gutter: 10px
+);
+@include generateGrid($gridSetup4);
+
+
+/*------------------------------------*\
+    RESPONSIVE GRIDS
+\*------------------------------------*/
+
+
+$gridSetup5: (
+	columnCount: 3,
+	s: (
+		columnCount: 1 2,
+		gutter: 20px
+	)
+);
+@include generateGrid($gridSetup5);
+
+
+$gridSetup6: (
+	columnCount: 6,
 	s: (
 		columnCount: 3,
-		gutter: 30px
+		gutter: 20px
 	),
 	m: (
-		columnCount: 5 7,
-		columnVariations: "2o5" "3o5",
+		columnCount: 4,
+		columnVariations: "1o4" "3o4",
+		gutter: 10px
+	)
+);
+@include generateGrid($gridSetup6);
+
+
+$gridSetup7: (
+	s: (
+		columnCount: 3,
+		gutter: 20px
+	),
+	m: (
+		columnCount: 4,
+		columnVariations: "1o4" "3o4",
+		gutter: 10px
+	),
+	l: (
+		columnCount: 2 4,
+		gutter: 20px
+	),
+	xl: (
+		columnCount: 1 5,
+		gutter: 30px
+	)
+);
+@include generateGrid($gridSetup7);
+
+
+/*------------------------------------*\
+    CRAZY ALL IN ONE GRID
+\*------------------------------------*/
+
+
+$gridSetupX: (
+	columnCount: 3 4 6 12,
+	columnVariations: "2o6" "4o6" "7o12" "3o12" "2o12",
+	gutter: 10px,
+	s: (
+		columnCount: 2 3 4,
+		columnVariations: "1o3" "2o3",
+		gutter: 10px
+	),
+	m: (
+		columnCount: 1 4 6,
+		columnVariations: "4o6" "2o6" "1o6" "5o6",
 		gutter: 20px
 	),
 	l: (
@@ -64,11 +155,12 @@ $gridSetup: (
 		columnVariations: "1o4" "3o4"
 	),
 	xl: (
-		columnCount: 9
+		columnCount: 1 9,
+		columnVariations: "6o12"
 	)
 );
+@include generateGrid($gridSetupX);
 
-@include generateGrid($gridSetup);
 
 
 
