@@ -22,35 +22,41 @@
 }
 
 @mixin responsive($type) {
-	@if $type == 'mobile' {
-		@include mobile {
+	@if $type == 's' {
+		@include small {
 			@content;
 		}
 	}
 
-	@if $type == 'tablet' {
-		@include tablet {
+	@if $type == 'm' {
+		@include medium {
 			@content;
 		}
 	}
 
-	@if $type == 'desktop' {
-		@include desktop {
+	@if $type == 'l' {
+		@include large {
+			@content;
+		}
+	}
+
+	@if $type == 'xl' {
+		@include huge {
 			@content;
 		}
 	}
 }
 
-@mixin mobile {
+@mixin small {
     @include toWidth($mediumWidth - 1px) { @content; };
 }
 
-@mixin tablet {
-    @include fromWidth($mediumWidth) { @content; };
+@mixin medium {
+    @include betweenWidth($mediumWidth, $largeWidth - 1px) { @content; };
 }
 
-@mixin desktop {
-    @include fromWidth($largeWidth) { @content; };
+@mixin large {
+    @include betweenWidth($largeWidth, $hugeWidth) { @content; };
 }
 
 @mixin huge {

@@ -9,21 +9,7 @@
     GRID SYSTEM
 \*------------------------------------*/
 
-
-@mixin grid($column) {
-  .col-#{$column} {
-    width: 100% / $column;
-  }
-}
-
-@mixin distributedGrid($columnCount, $gridCount) {
-  .col-#{$columnCount}o#{$gridCount} {
-    width: number($columnCount) / number($gridCount) * 100%;
-  }
-}
-
-
-@mixin responsiveGrid($type, $config) {
+@mixin responsiveGrid($type, $config, $gutter) {
     $columnCount: map-get($config, 'columnCount');
     $columnDistribution: map-get($config, 'columnDistribution');
 
@@ -32,12 +18,18 @@
       @if map-has-key($config, 'columnCount') {
         .grid {
           $columnArray: map-get($config, 'columnCount');
+          $rGutter: map-get($config, 'gutter');
+          
+          @if $rGutter == null {
+            $rGutter: $gutter;
+          }
+
           @each $column in $columnArray {
             $columnCount: nth($columnArray, index($columnArray, $column));
 
-            // @include grid($columnCount);
             .col-#{$type}-#{$columnCount} {
-              width: columnWidth($column);
+              color: $rGutter;
+              width: calc(#{columnWidth($column)}  - #{$gutter});
             }
           }
         }
@@ -47,13 +39,13 @@
         .grid {
           $columnVariations: map-get($config, 'columnVariations');
           @each $column in $columnVariations {
-            $columnVariation: nth($columnVariations, index($columnVariations, $column));
-            $columnCount: str-slice($columnVariation, 0,1);
-            $gridCount: str-slice($columnVariation, 3,4);
+            $variation: nth($columnVariations, index($columnVariations, $column));
+            $variation: numbers($variation);
+            $columnCount: nth($variation, 1);
+            $gridCount: nth($variation, 2);
 
-            // @include distributedGrid($columnCount, $gridCount);
             .col-#{$type}-#{$columnCount}o#{$gridCount} {
-              width: columnWidth($columnCount, $gridCount);
+              width: calc(#{columnWidth($columnCount, $gridCount)}  - #{$gutter});
             }
           }
         }
@@ -63,14 +55,34 @@
 
 
 $gridInit: 0;
+$gridGutter: false;
+$gutter: 0;
 @mixin generateGrid($config) {
   @if $gridInit == 0 {
     $gridInit: 1 !global;
+    $gutter: 0;
+
+    @if map-has-key($config, 'gutter') {
+      $gutter: map-get($config, 'gutter') !global;
+      $gridGutter: true !global;
+    }
+
     .grid {
       width: inherit;
+      @if $gridGutter == true {
+        // width: calc(100% + #{map-get($config, 'gutter')});
+        // margin-left: -1 *  map-get($config, 'gutter') / 2;
+        padding-left: map-get($config, 'gutter') / 2;
+        padding-right: map-get($config, 'gutter') / 2;
+      }
     }
       .grid [class*='col-'] {
         float: left;
+        
+        @if $gridGutter == true {
+          margin-left: map-get($config, 'gutter') / 2;
+          margin-right: map-get($config, 'gutter') / 2;
+        }
       }
   }
 
@@ -81,9 +93,8 @@ $gridInit: 0;
       @each $column in $columnArray {
         $columnCount: nth($columnArray, index($columnArray, $column));
 
-        // @include grid($columnCount);
         .col-#{$column} {
-          width: columnWidth($column);
+          width: calc(#{columnWidth($column)}  - #{$gutter});
         }
       }
     }
@@ -95,13 +106,13 @@ $gridInit: 0;
     .grid {
       $columnVariations: map-get($config, 'columnVariations');
       @each $column in $columnVariations {
-        $columnVariation: nth($columnVariations, index($columnVariations, $column));
-        $columnCount: str-slice($columnVariation, 0,1);
-        $gridCount: str-slice($columnVariation, 3,4);
+        $variation: nth($columnVariations, index($columnVariations, $column));
+        $variation: numbers($variation);
+        $columnCount: nth($variation, 1);
+        $gridCount: nth($variation, 2);
 
-        // @include distributedGrid($columnCount, $gridCount);
         .col-#{$columnCount}o#{$gridCount} {
-          width: columnWidth($columnCount, $gridCount);
+          width: calc(#{columnWidth($columnCount, $gridCount)}  - #{$gutter});
         }
       }
     }
@@ -110,13 +121,14 @@ $gridInit: 0;
 
   // RESPONSIVE 
   $responsiveBreakpoints: (
-    mobile:  true,
-    tablet:  true,
-    desktop: true
+    s:  true,
+    m:  true,
+    l: true,
+    xl: true
   );
   @each $type in map-keys($config) {
     @if map-has-key($responsiveBreakpoints, $type) {
-      @include responsiveGrid($type, map-get($config, $type));
+      @include responsiveGrid($type, map-get($config, $type), $gutter);
     }
     
   }
@@ -133,11 +145,11 @@ $gridInit: 0;
 }
 
 @function number($string) {
-  $strings: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9";
-  $numbers:  0   1   2   3   4   5   6   7   8   9;
+  $strings: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" "13" "14" "15" "16";
+  $numbers:  0   1   2   3   4   5   6   7   8   9   10   11   12   13   14   15   16;
   $result: 0;
 
-  @for $i from 1 through 10 {
+  @for $i from 1 through 12 {
     @if $string == nth($strings, $i) {
       $result: nth($numbers, $i);
     }
@@ -147,3 +159,28 @@ $gridInit: 0;
 }
 
 
+@function numbers($string) {
+  $splitPosition: str-index($string, "o");
+  $stringLength: str-length($string);
+  $firstNumber: 0;
+  $secondNumber: 0;
+
+  @if $splitPosition == 2 {
+    $firstNumber: str-slice($string, 0,1);
+    $secondNumber: str-slice($string, 3,4);
+  }
+
+  @if $splitPosition == 3 {
+    @if $stringLength == 4 {
+      $firstNumber: str-slice($string, 0,2);
+      $secondNumber: str-slice($string, 4,5);
+    } @else {
+      $firstNumber: str-slice($string, 0,2);
+      $secondNumber: str-slice($string, 4,6);
+    }
+    
+  }
+
+  $numbers: $firstNumber $secondNumber;
+  @return $numbers;
+}
