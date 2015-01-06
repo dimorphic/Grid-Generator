@@ -1,91 +1,55 @@
-Grid-Generator
+WTGrid
 ==============
 
-GridGenerator is a SASS mixin meant to replace all grids :) From Twitter Bootstrap to Foundation, 960, etc all of them come with a lot of classes that pollute the code.
+With the help of WTGrid you will be able to generate whatever CSS grid you need. Unlike all CSS frameworks out there WTGrid creates only the needed styles without polluting the source code with unneeded code. 
 
-Using the very cool ‘map’ property that came in SASS v3 http://sass.logdown.com/ objects can be created to generate specific grids / grid classes / grid styles. 
+WTGrid is full responsive and compatible with IE9+ 
+
+SASS V3.3+ is needed
 
 Params: 
 
-```columnCount``` - is used to define the number of columns, everything is in % and the grid inherits the width of its parent 
+```columnCount``` - is used to define the number of columns, everything is in %.
 
-```columnDistribution``` - receives an array of values from 1 - 10 and it should be used to definde specifc widths for each column.
+```columnVariations``` - used to define custom sizes for columns. ex: 2o7 will create a column thats wide as 2 columns out of 7 
 
-If ```columnCount``` is not added then the ```@mixin``` looks for responsive setting that can be configured using ```mobile```,```tablet```,```desktop```.
+``` s / m / l / xl ``` - are used with ```columnCount``` and ```columnVariations``` to setup the grid for responsive breakpoints 
 
-Example: 
 
-```css
+Minimal setup: 
+
+```
 $gridSetup: (
-	columnCount: 2
+    columnCount: 2
 );
 
 @include generateGrid($gridSetup);
 ```
-Turns into 
-```CSS
-.grid {
-  width: inherit;
-}
 
-.grid [class*='col-'] {
-  float: left;
-  width: 100%;
-}
+Advanced setup: 
 
-.grid .col-2 {
-  width: 50%;
-}
 ```
-
-A more complicated example would look like this: 
-
-```css
-$gridSetup2: (
-	mobile: (
-		columnCount: 2,
-		columnDistribution: (3, 7)
+$gridSetup: (
+	columnCount: 1 2 4 7 9 10 11,
+	columnVariations: "2o7" "5o7" "3o4" "1o4" "5o11" "6o11"",
+	gutter: 10px,
+	s: (
+		columnCount: 3,
+		gutter: 20px
 	),
-	tablet: (
-		columnCount: 3
+	m: (
+		columnCount: 5 7,
+		columnVariations: "2o5" "3o5",
+		gutter: 16px
 	),
-	desktop: (
-		columnCount: 6
+	l: (
+		columnCount: 1 3 4,
+		columnVariations: "1o4" "3o4"
+	),
+	xl: (
+		columnCount: 9
 	)
 );
-@include generateGrid($gridSetup2);
-```
-And generates this CSS
-```CSS
-@media only screen and (max-width: 767px) {
-  .grid .col-mobile-2-3 {
-    width: 30%;
-  }
-
-  .grid .col-mobile-2-7 {
-    width: 70%;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .grid .col-tablet-3 {
-    width: 33.33333%;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  .grid .col-desktop-6 {
-    width: 16.66667%;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .grid .col-desktop-3-2 {
-    width: 20%;
-  }
-  .grid .col-desktop-3-2 {
-    width: 20%;
-  }
-  .grid .col-desktop-3-6 {
-    width: 60%;
-  }
-}
+	
+@include generateGrid($gridSetup);
 ```
