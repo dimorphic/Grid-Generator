@@ -205,82 +205,82 @@ html {
   background: rgba(47, 39, 152, 0.25);
 }
 
-/* line 70, ../scss/_grid.scss */
+/* line 74, ../scss/_grid.scss */
 .grid {
   width: inherit;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-/* line 79, ../scss/_grid.scss */
+/* line 83, ../scss/_grid.scss */
 .grid [class*='col-'] {
   float: left;
   margin-left: 5px;
   margin-right: 5px;
 }
 
-/* line 96, ../scss/_grid.scss */
+/* line 100, ../scss/_grid.scss */
 .grid .col-1 {
   width: calc(100%  - 10px);
 }
-/* line 96, ../scss/_grid.scss */
+/* line 100, ../scss/_grid.scss */
 .grid .col-2 {
   width: calc(50%  - 10px);
 }
-/* line 96, ../scss/_grid.scss */
+/* line 100, ../scss/_grid.scss */
 .grid .col-4 {
   width: calc(25%  - 10px);
 }
-/* line 96, ../scss/_grid.scss */
+/* line 100, ../scss/_grid.scss */
 .grid .col-7 {
   width: calc(14.28571%  - 10px);
 }
-/* line 96, ../scss/_grid.scss */
+/* line 100, ../scss/_grid.scss */
 .grid .col-9 {
   width: calc(11.11111%  - 10px);
 }
-/* line 96, ../scss/_grid.scss */
+/* line 100, ../scss/_grid.scss */
 .grid .col-10 {
   width: calc(10%  - 10px);
 }
-/* line 96, ../scss/_grid.scss */
+/* line 100, ../scss/_grid.scss */
 .grid .col-11 {
   width: calc(9.09091%  - 10px);
 }
 
-/* line 114, ../scss/_grid.scss */
+/* line 118, ../scss/_grid.scss */
 .grid .col-2o7 {
   width: calc(28.57143%  - 10px);
 }
-/* line 114, ../scss/_grid.scss */
+/* line 118, ../scss/_grid.scss */
 .grid .col-5o7 {
   width: calc(71.42857%  - 10px);
 }
-/* line 114, ../scss/_grid.scss */
+/* line 118, ../scss/_grid.scss */
 .grid .col-3o4 {
   width: calc(75%  - 10px);
 }
-/* line 114, ../scss/_grid.scss */
+/* line 118, ../scss/_grid.scss */
 .grid .col-1o4 {
   width: calc(25%  - 10px);
 }
-/* line 114, ../scss/_grid.scss */
+/* line 118, ../scss/_grid.scss */
 .grid .col-5o11 {
   width: calc(45.45455%  - 10px);
 }
-/* line 114, ../scss/_grid.scss */
+/* line 118, ../scss/_grid.scss */
 .grid .col-6o11 {
   width: calc(54.54545%  - 10px);
 }
-/* line 114, ../scss/_grid.scss */
+/* line 118, ../scss/_grid.scss */
 .grid .col-7o11 {
   width: calc(63.63636%  - 10px);
 }
-/* line 114, ../scss/_grid.scss */
+/* line 118, ../scss/_grid.scss */
 .grid .col-8o11 {
   width: calc(72.72727%  - 10px);
 }
-/* line 114, ../scss/_grid.scss */
+/* line 118, ../scss/_grid.scss */
 .grid .col-10o11 {
   width: calc(90.90909%  - 10px);
 }
@@ -288,53 +288,59 @@ html {
 @media only screen and (max-width: 767px) {
   /* line 30, ../scss/_grid.scss */
   .grid .col-s-3 {
-    color: 10px;
-    width: calc(33.33333%  - 10px);
+    width: calc(33.33333%  - 30px);
+    margin-left: 15px;
+    margin-right: 15px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   /* line 30, ../scss/_grid.scss */
   .grid .col-m-5 {
-    color: 20px;
-    width: calc(20%  - 10px);
+    width: calc(20%  - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
   }
   /* line 30, ../scss/_grid.scss */
   .grid .col-m-7 {
-    color: 20px;
-    width: calc(14.28571%  - 10px);
+    width: calc(14.28571%  - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
-  /* line 47, ../scss/_grid.scss */
+  /* line 51, ../scss/_grid.scss */
   .grid .col-m-2o5 {
     width: calc(40%  - 10px);
   }
-  /* line 47, ../scss/_grid.scss */
+  /* line 51, ../scss/_grid.scss */
   .grid .col-m-3o5 {
     width: calc(60%  - 10px);
   }
 }
-@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
   /* line 30, ../scss/_grid.scss */
   .grid .col-l-1 {
-    color: 10px;
     width: calc(100%  - 10px);
+    margin-left: 5px;
+    margin-right: 5px;
   }
   /* line 30, ../scss/_grid.scss */
   .grid .col-l-3 {
-    color: 10px;
     width: calc(33.33333%  - 10px);
+    margin-left: 5px;
+    margin-right: 5px;
   }
   /* line 30, ../scss/_grid.scss */
   .grid .col-l-4 {
-    color: 10px;
     width: calc(25%  - 10px);
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
-  /* line 47, ../scss/_grid.scss */
+  /* line 51, ../scss/_grid.scss */
   .grid .col-l-1o4 {
     width: calc(25%  - 10px);
   }
-  /* line 47, ../scss/_grid.scss */
+  /* line 51, ../scss/_grid.scss */
   .grid .col-l-3o4 {
     width: calc(75%  - 10px);
   }
@@ -342,7 +348,8 @@ html {
 @media only screen and (min-width: 1200px) {
   /* line 30, ../scss/_grid.scss */
   .grid .col-xl-9 {
-    color: 10px;
     width: calc(11.11111%  - 10px);
+    margin-left: 5px;
+    margin-right: 5px;
   }
 }

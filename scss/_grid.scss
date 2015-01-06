@@ -28,8 +28,12 @@
             $columnCount: nth($columnArray, index($columnArray, $column));
 
             .col-#{$type}-#{$columnCount} {
-              color: $rGutter;
-              width: calc(#{columnWidth($column)}  - #{$gutter});
+              width: calc(#{columnWidth($column)}  - #{$rGutter});
+
+              @if $rGutter != null {
+                margin-left: $rGutter / 2;
+                margin-right: $rGutter / 2;
+              }
             }
           }
         }
@@ -145,14 +149,21 @@ $gutter: 0;
 }
 
 @function number($string) {
-  $strings: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" "13" "14" "15" "16";
-  $numbers:  0   1   2   3   4   5   6   7   8   9   10   11   12   13   14   15   16;
+  $strings: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9";
+  $numbers:  0   1   2   3   4   5   6   7   8   9 ;
   $result: 0;
 
-  @for $i from 1 through 12 {
-    @if $string == nth($strings, $i) {
-      $result: nth($numbers, $i);
+  @for $i from 1 through str-length($string) {
+    $character: str-slice($string, $i, $i);
+    $index: index($strings, $character);
+
+    @if not $index {
+      @warn "Unknown character `#{$character}`.";
+      @return false;
     }
+
+    $number: nth($numbers, $index);
+    $result: $result * 10 + $number;
   }
 
   @return $result;

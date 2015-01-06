@@ -52,7 +52,7 @@ $gridSetup: (
 	gutter: 10px,
 	s: (
 		columnCount: 3,
-		gutter: 10px
+		gutter: 30px
 	),
 	m: (
 		columnCount: 5 7,
@@ -67,7 +67,6 @@ $gridSetup: (
 		columnCount: 9
 	)
 );
-
 
 @include generateGrid($gridSetup);
 

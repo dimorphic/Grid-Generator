@@ -56,7 +56,7 @@
 }
 
 @mixin large {
-    @include betweenWidth($largeWidth, $hugeWidth) { @content; };
+    @include betweenWidth($largeWidth, $hugeWidth - 1px) { @content; };
 }
 
 @mixin huge {
