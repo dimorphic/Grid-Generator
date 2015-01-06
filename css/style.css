@@ -11,7 +11,6 @@
  * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
  * http://cssreset.com
  */
-/* line 6, ../scss/_reset.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -34,35 +33,29 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-/* line 27, ../scss/_reset.scss */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-/* line 31, ../scss/_reset.scss */
 body {
   line-height: 1;
 }
 
-/* line 34, ../scss/_reset.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 37, ../scss/_reset.scss */
 blockquote, q {
   quotes: none;
 }
 
-/* line 40, ../scss/_reset.scss */
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
   content: none;
 }
 
-/* line 45, ../scss/_reset.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -72,12 +65,10 @@ table {
     Apply a natural box layout model to all elements, but allowing components to change.
     More on http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ 
 */
-/* line 55, ../scss/_reset.scss */
 html {
   box-sizing: border-box;
 }
 
-/* line 58, ../scss/_reset.scss */
 *,
 *:before,
 *:after {
@@ -111,182 +102,145 @@ html {
 /*------------------------------------*\
     GRID SYSTEM
 \*------------------------------------*/
-/* line 21, ../scss/style.scss */
 .wrapper {
   width: 100%;
   overflow: hidden;
 }
 
-/* line 26, ../scss/style.scss */
 .grid {
   background: #cecece;
   clear: both;
   overflow: hidden;
   background: pink;
 }
-/* line 34, ../scss/style.scss */
 .grid div {
   padding-top: 250px;
   margin-bottom: 10px;
 }
 
-/* line 41, ../scss/style.scss */
 .grid div:nth-child(1) {
   background: rgba(47, 39, 152, 0.95);
 }
 
-/* line 41, ../scss/style.scss */
 .grid div:nth-child(2) {
   background: rgba(47, 39, 152, 0.9);
 }
 
-/* line 41, ../scss/style.scss */
 .grid div:nth-child(3) {
   background: rgba(47, 39, 152, 0.85);
 }
 
-/* line 41, ../scss/style.scss */
 .grid div:nth-child(4) {
   background: rgba(47, 39, 152, 0.8);
 }
 
-/* line 41, ../scss/style.scss */
 .grid div:nth-child(5) {
   background: rgba(47, 39, 152, 0.75);
 }
 
-/* line 41, ../scss/style.scss */
 .grid div:nth-child(6) {
   background: rgba(47, 39, 152, 0.7);
 }
 
-/* line 41, ../scss/style.scss */
 .grid div:nth-child(7) {
   background: rgba(47, 39, 152, 0.65);
 }
 
-/* line 41, ../scss/style.scss */
 .grid div:nth-child(8) {
   background: rgba(47, 39, 152, 0.6);
 }
 
-/* line 41, ../scss/style.scss */
 .grid div:nth-child(9) {
   background: rgba(47, 39, 152, 0.55);
 }
 
-/* line 41, ../scss/style.scss */
 .grid div:nth-child(10) {
   background: rgba(47, 39, 152, 0.5);
 }
 
-/* line 41, ../scss/style.scss */
 .grid div:nth-child(11) {
   background: rgba(47, 39, 152, 0.45);
 }
 
-/* line 41, ../scss/style.scss */
 .grid div:nth-child(12) {
   background: rgba(47, 39, 152, 0.4);
 }
 
-/* line 41, ../scss/style.scss */
 .grid div:nth-child(13) {
   background: rgba(47, 39, 152, 0.35);
 }
 
-/* line 41, ../scss/style.scss */
 .grid div:nth-child(14) {
   background: rgba(47, 39, 152, 0.3);
 }
 
-/* line 41, ../scss/style.scss */
 .grid div:nth-child(15) {
   background: rgba(47, 39, 152, 0.25);
 }
 
-/* line 74, ../scss/_grid.scss */
 .grid {
   width: inherit;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-/* line 83, ../scss/_grid.scss */
 .grid [class*='col-'] {
   float: left;
   margin-left: 5px;
   margin-right: 5px;
 }
 
-/* line 100, ../scss/_grid.scss */
 .grid .col-1 {
   width: calc(100%  - 10px);
 }
-/* line 100, ../scss/_grid.scss */
 .grid .col-2 {
   width: calc(50%  - 10px);
 }
-/* line 100, ../scss/_grid.scss */
 .grid .col-4 {
   width: calc(25%  - 10px);
 }
-/* line 100, ../scss/_grid.scss */
 .grid .col-7 {
   width: calc(14.28571%  - 10px);
 }
-/* line 100, ../scss/_grid.scss */
 .grid .col-9 {
   width: calc(11.11111%  - 10px);
 }
-/* line 100, ../scss/_grid.scss */
 .grid .col-10 {
   width: calc(10%  - 10px);
 }
-/* line 100, ../scss/_grid.scss */
 .grid .col-11 {
   width: calc(9.09091%  - 10px);
 }
 
-/* line 118, ../scss/_grid.scss */
 .grid .col-2o7 {
   width: calc(28.57143%  - 10px);
 }
-/* line 118, ../scss/_grid.scss */
 .grid .col-5o7 {
   width: calc(71.42857%  - 10px);
 }
-/* line 118, ../scss/_grid.scss */
 .grid .col-3o4 {
   width: calc(75%  - 10px);
 }
-/* line 118, ../scss/_grid.scss */
 .grid .col-1o4 {
   width: calc(25%  - 10px);
 }
-/* line 118, ../scss/_grid.scss */
 .grid .col-5o11 {
   width: calc(45.45455%  - 10px);
 }
-/* line 118, ../scss/_grid.scss */
 .grid .col-6o11 {
   width: calc(54.54545%  - 10px);
 }
-/* line 118, ../scss/_grid.scss */
 .grid .col-7o11 {
   width: calc(63.63636%  - 10px);
 }
-/* line 118, ../scss/_grid.scss */
 .grid .col-8o11 {
   width: calc(72.72727%  - 10px);
 }
-/* line 118, ../scss/_grid.scss */
 .grid .col-10o11 {
   width: calc(90.90909%  - 10px);
 }
 
 @media only screen and (max-width: 767px) {
-  /* line 30, ../scss/_grid.scss */
   .grid .col-s-3 {
     width: calc(33.33333%  - 30px);
     margin-left: 15px;
@@ -294,59 +248,49 @@ html {
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  /* line 30, ../scss/_grid.scss */
   .grid .col-m-5 {
     width: calc(20%  - 20px);
     margin-left: 10px;
     margin-right: 10px;
   }
-  /* line 30, ../scss/_grid.scss */
   .grid .col-m-7 {
     width: calc(14.28571%  - 20px);
     margin-left: 10px;
     margin-right: 10px;
   }
 
-  /* line 51, ../scss/_grid.scss */
   .grid .col-m-2o5 {
     width: calc(40%  - 10px);
   }
-  /* line 51, ../scss/_grid.scss */
   .grid .col-m-3o5 {
     width: calc(60%  - 10px);
   }
 }
 @media only screen and (min-width: 1024px) and (max-width: 1199px) {
-  /* line 30, ../scss/_grid.scss */
   .grid .col-l-1 {
     width: calc(100%  - 10px);
     margin-left: 5px;
     margin-right: 5px;
   }
-  /* line 30, ../scss/_grid.scss */
   .grid .col-l-3 {
     width: calc(33.33333%  - 10px);
     margin-left: 5px;
     margin-right: 5px;
   }
-  /* line 30, ../scss/_grid.scss */
   .grid .col-l-4 {
     width: calc(25%  - 10px);
     margin-left: 5px;
     margin-right: 5px;
   }
 
-  /* line 51, ../scss/_grid.scss */
   .grid .col-l-1o4 {
     width: calc(25%  - 10px);
   }
-  /* line 51, ../scss/_grid.scss */
   .grid .col-l-3o4 {
     width: calc(75%  - 10px);
   }
 }
 @media only screen and (min-width: 1200px) {
-  /* line 30, ../scss/_grid.scss */
   .grid .col-xl-9 {
     width: calc(11.11111%  - 10px);
     margin-left: 5px;
