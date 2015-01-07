@@ -140,7 +140,7 @@ $gridSetup4: (
 @include generateGrid($gridSetup4);
 ```
 
-Creating a responsive grid with different column size only for mobile: 
+Creating a responsive grid with different column size only for small screens: 
 
 ```
 $gridSetup5: (
