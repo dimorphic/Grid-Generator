@@ -6,6 +6,15 @@
  */
 
 /*------------------------------------*\
+    RESPONSIVE BREAKPOINTS
+\*------------------------------------*/
+
+$smallWidth:                   320px  !default;
+$mediumWidth:                  768px  !default;
+$largeWidth:                   1024px !default;
+$hugeWidth:                    1200px !default;
+
+/*------------------------------------*\
     RESPONSIVE MIXINS
 \*------------------------------------*/
 
