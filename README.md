@@ -68,7 +68,9 @@ The configs are passed to the mixing in the form of an object:
 
 ```
 $gridSetup: (
-    columnCount: 3
+    columnCount: 3,
+    columnVariations: "2o3",
+    gutter: 10px
 );
 
 @include generateGrid($gridSetup);
