@@ -83,7 +83,6 @@ $responsiveBreakpoints: (
 
   @if $gridInit == 0 {
     $gridInit: 1 !global;
-    $gutter: 0;
 
     .grid {
       width: inherit;
